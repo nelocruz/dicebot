@@ -1,0 +1,22 @@
+LANG_CHANGED=Language set to en-US;
+NO_COMMAND=Invalid command.;
+NOT_A_NUMBER=Invalid Target Number;
+GRAND_TOTAL=Grand Total;
+CRITICAL_SUCCESS=CRITICAL SUCCESS :star_struck:;
+NORMAL_SUCCESS=success :grin:;
+NORMAL_ERROR=failure :tired_face:;
+CRITICAL_ERROR=CRITICAL FAILURE :hot_face:;
+WITH_MARGIN=with {d} margin;
+HELP=command-line: `.g[urps] 00`
+OR: `.g[urps] tn00`
+OR: `.g[urps] targetNumber00`
+    `00`: target number of the roll
+
+command-line: `.g[urps] 00d[+00][\\*00]`
+OR: `.g[urps] 00[+00][\\*00]`
+    `00d`: number of dices to roll
+    `+00`: fixed bonus added to roll
+    `\\*00d`: number of times the roll is made
+
+command-line: `.g[urps] lang xx-XX`
+    `xx-XX`: language code (ie. pt-BR, en-US);

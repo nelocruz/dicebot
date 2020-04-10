@@ -1,0 +1,22 @@
+LANG_CHANGED=Idioma alterado para pt-BR;
+NO_COMMAND=Comando não reconhecido.;
+NOT_A_NUMBER=NT inválido;
+GRAND_TOTAL=Somatório;
+CRITICAL_SUCCESS=SUCESSO CRÍTICO :star_struck:;
+NORMAL_SUCCESS=sucesso :grin:;
+NORMAL_ERROR=falha :tired_face:;
+CRITICAL_ERROR=FALHA CRÍTICA :hot_face:;
+WITH_MARGIN=com {d} de margem;
+HELP=linha de comando: `.g[urps] 00`
+OU: `.g[urps] tn00`
+OU: `.g[urps] targetNumber00`
+    `00`: nível efetivo de habilidade do rolamento
+
+linha de comando: `.g[urps] 00d[+00][\\*00]`
+OU: `.g[urps] 00[+00][\\*00]`
+    `00d`: número de dados rolados
+    `+00`: bônus fixo do rolamento
+    `\\*00d`: quantidade de repetições do rolamento
+
+linha de comando: `.g[urps] lang xx-XX`
+    `xx-XX`: código de idioma (ex. pt-BR, en-US);
