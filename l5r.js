@@ -107,12 +107,16 @@ function rollDie(explode) {
     if (typeof explode === 'undefined') {
         explode = 10;
     }
+    var firstRun = true;
     var result = 0;
     var rollValue = 0;
     do {
         rollValue = Math.floor(Math.random() * 10) + 1;
         result += rollValue;
-        explode = 10;
+        if (!firstRun){
+            explode = 10;
+        }
+        firstRun = false;
     } while (rollValue >= explode);
     return result;
 }

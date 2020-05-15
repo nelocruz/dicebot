@@ -7,6 +7,15 @@ NORMAL_SUCCESS=sucesso :grin:;
 NORMAL_ERROR=falha :tired_face:;
 CRITICAL_ERROR=FALHA CRÍTICA :hot_face:;
 WITH_MARGIN=com {d} de margem;
+RANGE_MODIFIER_IS=modificador de distância de `{d}`;
+CRITICAL_HIT_NORMAL_3=O golpe causa o triplo do dano.;
+CRITICAL_HIT_NORMAL_4=A RD do alvo protege apenas com metade do valor (arredondado para baixo) depois de aplicados quaisquer divisores de armadura.;
+CRITICAL_HIT_NORMAL_5=O golpe causa o dobro do dano.;
+CRITICAL_HIT_NORMAL_6=O golpe causa o máximo do dano normal.;
+CRITICAL_HIT_NORMAL_7=Se qualquer dano penetrar a RD, trate como se fosse um ferimento grave, independente do dano causado.;
+CRITICAL_HIT_NORMAL_8=Se qualquer dano penetrar a RD, ele causa o dobro do choque normal. Se foi contra um membro, ele fica incapacitado e volta ao normal em (16 - HT) segundos, mínimo dois segundos.;
+CRITICAL_HIT_NORMAL_9=Apenas o dano normal.;
+CRITICAL_HIT_NORMAL_12=Dano normal e a vítima deixa cair o que estiver segurando, independe do dano que penetrar a RD.;
 HELP=linha de comando: `.g[urps] 00`
 OU: `.g[urps] tn00`
 OU: `.g[urps] targetNumber00`
@@ -18,5 +27,13 @@ OU: `.g[urps] 00[+00][\\*00]`
     `+00`: bônus fixo do rolamento
     `\\*00d`: quantidade de repetições do rolamento
 
+linha de comando: `.g[urps] rf 000`
+OU: `.g[urps] rangefinder 000`
+    `000`: distância em metros
+
+linha de comando: `.g[urps] ch`
+OU: `.g[urps] criticalHit`
+
 linha de comando: `.g[urps] lang xx-XX`
-    `xx-XX`: código de idioma (ex. pt-BR, en-US);
+    `xx-XX`: código de idioma (ex. pt-BR, en-US)
+;

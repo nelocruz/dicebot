@@ -12,6 +12,7 @@ try {
 
 const Gurps = require('./gurps');
 const L5R = require('./l5r');
+const Voice = require('./voice');
 
 client.on('ready', () => {
     console.log('Ready!');
@@ -33,6 +34,14 @@ client.on('message', msg => {
         case '.l5r':
             try {
                 msg.reply(L5R.roll(argsStr));
+            } catch (ex) {
+                msg.reply('Erro: ' + ex.message);
+            }
+            break;
+        case '.p':
+        case '.play':
+            try {
+                Voice.runCommand(msg, argsStr);
             } catch (ex) {
                 msg.reply('Erro: ' + ex.message);
             }

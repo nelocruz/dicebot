@@ -5,6 +5,8 @@ function roll(input) {
     //control properties
     var isHelp = parseHelp(input);
     var targetNumber = parseTargetNumber(input);
+    var isRangeFinder = parseRangeFinder(input);
+    var isCriticalHitNormal = parseCriticalHitNormal(input);
     var rollCommand = parseDiceRoll(input);
 
     if (parseLang(input)) {
@@ -17,6 +19,10 @@ function roll(input) {
         result = getHelpText();
     } else if (targetNumber) {
         result = getTargetNumber(targetNumber);
+    } else if (isRangeFinder) {
+        result = getRangeFinder(isRangeFinder);
+    } else if (isCriticalHitNormal) {
+        result = getCriticalHitNormal();
     } else if (rollCommand) {
         result = getDiceRoll(rollCommand);
     } else {
@@ -138,6 +144,119 @@ function getTargetNumber(input) {
     } else {
         result = getTerm('NOT_A_NUMBER');
     }
+    return result;
+}
+
+function parseRangeFinder(input) {
+    var result = null;
+    var matches = [];
+    matches = matches.concat(input.trim().toLowerCase().match(/rf ?[\d]+$/g));
+    matches = matches.concat(input.trim().toLowerCase().match(/rangefinder ?[\d]+$/g));
+    matches = matches.filter(function (val) { return val !== null });
+    if (matches.length > 0) {
+        result = matches[0];
+    }
+    return result;
+}
+function getRangeFinder(input) {
+    var result = null;
+    var range = parseInt(input.replace(/[^0-9]/g, ''));
+    if (range !== NaN) {
+        if (range <= 2) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "0");
+        else if (range <= 3) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-1");
+        else if (range <= 5) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-2");
+        else if (range <= 7) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-3");
+        else if (range <= 10) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-4");
+        else if (range <= 15) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-5");
+        else if (range <= 20) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-6");
+        else if (range <= 30) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-7");
+        else if (range <= 50) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-8");
+        else if (range <= 70) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-9");
+        else if (range <= 100) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-10");
+        else if (range <= 150) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-11");
+        else if (range <= 200) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-12");
+        else if (range <= 300) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-13");
+        else if (range <= 500) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-14");
+        else if (range <= 700) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-15");
+        else if (range <= 1000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-16");
+        else if (range <= 1500) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-17");
+        else if (range <= 2000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-18");
+        else if (range <= 3000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-19");
+        else if (range <= 5000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-20");
+        else if (range <= 7000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-21");
+        else if (range <= 10000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-22");
+        else if (range <= 15000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-23");
+        else if (range <= 20000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-24");
+        else if (range <= 30000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-25");
+        else if (range <= 50000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-26");
+        else if (range <= 70000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-27");
+        else if (range <= 100000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-28");
+        else if (range <= 150000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-29");
+        else if (range <= 200000) result = getTerm("RANGE_MODIFIER_IS").replace("{d}", "-30");
+        else result = getTerm("TOO_HIGH");
+    }
+    return result;
+}
+
+function parseCriticalHitNormal(input) {
+    var result = null;
+    var matches = [];
+    matches = matches.concat(input.trim().toLowerCase().match(/^ch$/g));
+    matches = matches.concat(input.trim().toLowerCase().match(/^criticalhit$/g));
+    matches = matches.filter(function (val) { return val !== null });
+    if (matches.length > 0) {
+        result = true;
+    }
+    return result;
+}
+function getCriticalHitNormal() {
+    var result = null;
+    var d1 = Math.floor(Math.random() * 6) + 1;
+    var d2 = Math.floor(Math.random() * 6) + 1;
+    var d3 = Math.floor(Math.random() * 6) + 1;
+    var dt = d1 + d2 + d3;
+    var outcome = '';
+    switch (dt) {
+        case 3:
+        case 18:
+            outcome = getTerm('CRITICAL_HIT_NORMAL_3');
+            break;
+        case 4:
+        case 17:
+            outcome = getTerm('CRITICAL_HIT_NORMAL_4');
+            break;
+        case 5:
+        case 16:
+            outcome = getTerm('CRITICAL_HIT_NORMAL_5');
+            break;
+        case 6:
+        case 15:
+            outcome = getTerm('CRITICAL_HIT_NORMAL_6');
+            break;
+        case 7:
+        case 13:
+        case 14:
+            outcome = getTerm('CRITICAL_HIT_NORMAL_7');
+            break;
+        case 8:
+            outcome = getTerm('CRITICAL_HIT_NORMAL_8');
+            break;
+        case 9:
+        case 10:
+        case 11:
+            outcome = getTerm('CRITICAL_HIT_NORMAL_9');
+            break;
+        case 12:
+            outcome = getTerm('CRITICAL_HIT_NORMAL_12');
+            break;
+    }
+
+    var result = '`[{d1}, {d2}, {d3}]` = `{dt}`: **{result}**'
+        .replace('{d1}', d1)
+        .replace('{d2}', d2)
+        .replace('{d3}', d3)
+        .replace('{dt}', dt)
+        .replace('{result}', outcome);
     return result;
 }
 
