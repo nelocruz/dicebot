@@ -10,8 +10,9 @@ try {
     console.log('Error on opening token.user:', e.stack);
 }
 
-const Gurps = require('./gurps');
-const L5R = require('./l5r');
+const Dnd = require('./dnd/main');
+const Gurps = require('./gurps/main');
+const L5R = require('./l5r/main');
 const Voice = require('./voice');
 
 client.on('ready', () => {
@@ -34,6 +35,14 @@ client.on('message', msg => {
         case '.l5r':
             try {
                 msg.reply(L5R.roll(argsStr));
+            } catch (ex) {
+                msg.reply('Erro: ' + ex.message);
+            }
+            break;
+        case '.d':
+        case '.dnd':
+            try {
+                msg.reply(Dnd.roll(argsStr, msg.author.id));
             } catch (ex) {
                 msg.reply('Erro: ' + ex.message);
             }

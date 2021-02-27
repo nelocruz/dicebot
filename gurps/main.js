@@ -132,7 +132,7 @@ function getTargetNumber(input) {
                 break;
         }
 
-        var result = '`[{d1}, {d2}, {d3}]` = `{dt} {sig} {nt}`: **{result}** {margin}'
+        var result = ':game_die:`[{d1}, {d2}, {d3}]` = `{dt} {sig} {nt}`: **{result}** {margin}'
             .replace('{d1}', d1)
             .replace('{d2}', d2)
             .replace('{d3}', d3)
@@ -316,11 +316,5 @@ function getTerm(term) {
     }
     return result;
 }
-// const CRITICAL_SUCCESS = "SUCESSO CRÍTICO :star_struck:";
-// const NORMAL_SUCCESS = "sucesso :grin:";
-// const NORMAL_ERROR = "falha :tired_face:";
-// const CRITICAL_ERROR = "FALHA CRÍTICA :hot_face:";
-// const WITH_MARGIN = "";
-// const HELP = "command-line: `.g[urps] 00`\r\nOR: `.g[urps] tn00`\r\nOR: `.g[urps] targetNumber00`\r\n\t`00`: target number of the roll\r\n\r\ncommand-line: `.g[urps] 00d[+00][\\*00]`\r\nOR: `.g[urps] 00[+00][\\*00]`\r\n\t`00d`: number of dices to roll\r\n\t`+00`: fixed bonus added to roll\r\n\t`\\*00d`: number of times the roll is made";
 
 module.exports.roll = roll;
