@@ -13,6 +13,7 @@ try {
 const Dnd = require('./dnd/main');
 const Gurps = require('./gurps/main');
 const L5R = require('./l5r/main');
+const Shadowrun = require('./shadowrun/main');
 const Voice = require('./voice');
 
 client.on('ready', () => {
@@ -43,6 +44,14 @@ client.on('message', msg => {
         case '.dnd':
             try {
                 msg.reply(Dnd.roll(argsStr, msg.author.id));
+            } catch (ex) {
+                msg.reply('Erro: ' + ex.message);
+            }
+            break;
+        case '.s':
+        case '.shadowrun':
+            try {
+                msg.reply(Shadowrun.roll(argsStr, msg.author.id));
             } catch (ex) {
                 msg.reply('Erro: ' + ex.message);
             }

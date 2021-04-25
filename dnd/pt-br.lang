@@ -1,0 +1,37 @@
+LANG_CHANGED=Idioma alterado para pt-BR;
+INVALID_SYNTAX= Sintáxe inválida. Valores esperados: [lvl], [str], [dex], [con], [int], [wis], [cha];
+CHAR_SAVED= Informações de personagem salvas com sucesso;
+NO_DATA_SAVED= Informações de personagem não foram gravadas. Por favor, execute o comando `.dnd save` antes de rolar atributos;
+NO_COMMAND=Comando não reconhecido.;
+NOT_A_NUMBER=NT inválido;
+HELP=linha de comando: `.d[nd] s[ave] lvl, str, dex, con, int, wis, cha`
+    Salva os valores de nível e atributos no sistema para uso nos rolamentos
+    `lvl`: nível atual do personagem, numeral
+    `str`: valor do atributo Força (STR) do personagem, numeral
+    `dex`: valor do atributo Destreza (DEX) do personagem, numeral
+    `con`: valor do atributo Constituição (CON) do personagem, numeral
+    `int`: valor do atributo Inteligência (INT) do personagem, numeral
+    `wis`: valor do atributo Sabedoria (WIS) do personagem, numeral
+    `cha`: valor do atributo Charisma (CHA) do personagem, numeral
+
+linha de comando: `.d[nd] v[iew]`
+    Exibe os valores salvos no sistema para nível e atributos
+
+linha de comando: `.d[nd] str|dex|con|int|wis|cha [p|e|j][a|d]`
+    Rola 1d20 + bônus de atributo relacionado + modificadores indicados
+    `str|dex|con|int|wis|cha`: utiliza o modificador de rolamento do atributo relacionado
+    `p`: soma a proficiência do personagem baseada no nível atual
+    `e`: soma o dobro da proficiência (expertise) baseado no nível atual
+    `j`: soma metade da proficiência (jack of all trades) baseado no nível atual
+    `a`: rola 2d20 e utiliza o maior dos rolamentos (advantage)
+    `d`: rola 2d20 e utiliza o menor dos rolamentos (disadvantage)
+
+linha de comando: `.d[nd] [X]dN [+|-00]`
+    Rola a quantidade de dados informados para o tipo informado
+    `X`: quantidade de dados rolados, default 1
+    `N`: tipo (quantidade de faces) do dado rolados
+    `+|-00`: bônus ou penalidade estáticos
+
+linha de comando: `.d[nd] lang xx-XX`
+    `xx-XX`: código de idioma (ex. pt-BR, en-US)
+;
