@@ -4,6 +4,8 @@ CHAR_SAVED= Informações de personagem salvas com sucesso;
 NO_DATA_SAVED= Informações de personagem não foram gravadas. Por favor, execute o comando `.dnd save` antes de rolar atributos;
 NO_COMMAND=Comando não reconhecido.;
 NOT_A_NUMBER=NT inválido;
+RESET_INIT=Tabela de Iniciativa resetada;
+LAST_INIT=Valor salvo para iniciativa;
 HELP=linha de comando: `.d[nd] s[ave] lvl, str, dex, con, int, wis, cha`
     Salva os valores de nível e atributos no sistema para uso nos rolamentos
     `lvl`: nível atual do personagem, numeral
@@ -25,6 +27,11 @@ linha de comando: `.d[nd] str|dex|con|int|wis|cha [p|e|j][a|d]`
     `j`: soma metade da proficiência (jack of all trades) baseado no nível atual
     `a`: rola 2d20 e utiliza o maior dos rolamentos (advantage)
     `d`: rola 2d20 e utiliza o menor dos rolamentos (disadvantage)
+
+linha de comando: `.d[nd] i[nit] ["creep name" roll]
+    Rola a iniciativa do personagem salvo (sem parâmetros) ou de um NPC (com parâmetros)
+    `"creep name"`: nome de exibição do NPC 
+    `roll`: rola o valor de iniciativa de acordo com a fórmula de rolamento inserida
 
 linha de comando: `.d[nd] [X]dN [+|-00]`
     Rola a quantidade de dados informados para o tipo informado
