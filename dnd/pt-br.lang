@@ -19,16 +19,18 @@ HELP=linha de comando: `.d[nd] s[ave] lvl, str, dex, con, int, wis, cha`
 linha de comando: `.d[nd] v[iew]`
     Exibe os valores salvos no sistema para nível e atributos
 
-linha de comando: `.d[nd] str|dex|con|int|wis|cha [p|e|j][a|d]`
+linha de comando: `.d[nd] str|dex|con|int|wis|cha [p|e|j][s|f][a|d]`
     Rola 1d20 + bônus de atributo relacionado + modificadores indicados
     `str|dex|con|int|wis|cha`: utiliza o modificador de rolamento do atributo relacionado
     `p`: soma a proficiência do personagem baseada no nível atual
     `e`: soma o dobro da proficiência (expertise) baseado no nível atual
     `j`: soma metade da proficiência (jack of all trades) baseado no nível atual
+    `s`: subtrai 5 do rolamento de ataque (sharpshooter)
+    `f`: soma 2 no ataque de arco (fighting style: archery)
     `a`: rola 2d20 e utiliza o maior dos rolamentos (advantage)
     `d`: rola 2d20 e utiliza o menor dos rolamentos (disadvantage)
 
-linha de comando: `.d[nd] i[nit] ["creep name" roll]
+linha de comando: `.d[nd] i[nit] ["creep name" [roll]]`
     Rola a iniciativa do personagem salvo (sem parâmetros) ou de um NPC (com parâmetros)
     `"creep name"`: nome de exibição do NPC 
     `roll`: rola o valor de iniciativa de acordo com a fórmula de rolamento inserida

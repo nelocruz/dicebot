@@ -2,7 +2,11 @@ const fs = require('fs');
 
 var isLocked = false;
 var list = [];
+var voiceChannel = undefined;
 var voiceConnection = undefined;
+var currentTrack = -1;
+var currentVolume = 0.2;
+var isLooping = false;
 
 function runCommand(message, command) {
     switch (command.split(' ')[0]) {
@@ -13,6 +17,10 @@ function runCommand(message, command) {
         case "s":
         case "stop":
             stop(message);
+            break;
+        case "r":
+        case "repeat":
+            isLooping = !isLooping;
             break;
         case "l":
         case "list":
@@ -27,32 +35,43 @@ function runCommand(message, command) {
 
 function playTest(message, position) {
     if (!isLocked) {
-        isLocked = true;
-        var voiceChannel = message.member.voice.channel;
         checkList();
         if (typeof position === 'undefined') {
             position = 0;
         }
-        var filename = getFromList(position);
-        if (typeof voiceChannel !== 'undefined') {
+        currentTrack = position;
+        voiceChannel = message.member.voice.channel;
+        if (typeof voiceChannel !== 'undefined' && typeof voiceChannel !== 'null') {
             voiceChannel.join().then(connection => {
-                voiceConnection = connection
-                    .play('./audio/' + filename, { volume: 0.20 })
-                    .on('start', () => { console.log('play!') })
-                    .on('finish', () => {
-                        console.log('end!');
-                        voiceConnection = undefined;
-                        voiceChannel.leave();
-                        isLocked = false;
-                    });
+                playFile(connection);
             }).catch(err => console.log(err));
         }
     }
 }
+function playFile(connection) {
+    isLocked = true;
+    var filename = getFromList(currentTrack);
+    voiceConnection = connection
+        .play('./audio/' + filename, { volume: currentVolume })
+        .on('start', () => {
+            //console.log('play!');
+        })
+        .on('finish', () => {
+            if (isLooping) {
+                playFile(connection);
+            } else {
+                //console.log('end!');
+                voiceConnection = undefined;
+                voiceChannel.leave();
+                isLocked = false;
+            }
+        });
+}
 
 function setVolume(message, command) {
     if (voiceConnection) {
-        voiceConnection.setVolume(command / 10);
+        currentVolume = command / 10;
+        voiceConnection.setVolume(currentVolume);
     }
 }
 

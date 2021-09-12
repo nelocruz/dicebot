@@ -10,6 +10,13 @@ function roll(input, userId, username) {
     const argsStr = parts.join(' ');
 
     switch (command) {
+        case 'for': command = 'str'; break;
+        case 'des': command = 'dex'; break;
+        case 'sab': command = 'wis'; break;
+        case 'car': command = 'cha'; break;
+    }
+
+    switch (command) {
         case 's':
         case 'save':
             result = saveCharData(argsStr, userId); break;
@@ -102,6 +109,8 @@ function rollAttribute(command, argsStr, userId) {
         const hasDis = !hasAdv && argsStr.indexOf('d') > -1;
         const hasExp = argsStr.indexOf('e') > -1;
         const hasJat = argsStr.indexOf('j') > -1;
+        const hasSS = argsStr.indexOf('s') > -1;
+        const hasFS = argsStr.indexOf('f') > -1;
 
         const rolls = [
             d20(),
@@ -109,10 +118,11 @@ function rollAttribute(command, argsStr, userId) {
         ];
         const sorted = rolls.slice().sort(function (a, b) { return a - b });
 
-        const value = (hasAdv ? sorted[1] : hasDis ? sorted[0] : rolls[0]) + (hasExp ? prof * 2 : hasProf ? prof : hasJat ? Math.ceil(prof / 2) : 0) + (attrMod);
+        const value = (hasAdv ? sorted[1] : hasDis ? sorted[0] : rolls[0]) + (hasExp ? prof * 2 : hasProf ? prof : hasJat ? Math.ceil(prof / 2) : 0) + (attrMod) + (hasSS ? -5 : 0) + (hasFS ? +2 : 0);
         result = ':game_die:';
         result += (hasAdv ? 'd20(adv) **[' + rolls[0] + ', ' + rolls[1] + ']**' : hasDis ? 'd20(dis) **[' + rolls[0] + ', ' + rolls[1] + ']**' : 'd20 **[' + rolls[0] + ']**');
         result += ' **+' + (hasExp ? (prof * 2) + '**(exp.)' : hasProf ? prof + '**(prof.)' : hasJat ? Math.ceil(prof / 2) + '**(jack.)' : 0 + '**');
+        result += (hasSS ? ' **-5**(sharp.)' : '') + (hasFS ? ' **+2**(arch.)' : '');
         result += (attrMod >= 0 ? ' **+' + attrMod : ' **-' + (attrMod * -1)) + '**(mod.) = `** ' + value + ' **`';
     }
     return result;
