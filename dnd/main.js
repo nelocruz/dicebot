@@ -4,9 +4,9 @@ const { r } = require('tar');
 var chars = [];
 var inits = [];
 
-function roll(input, userId, username) {
+function roll(input, channelId, userId, username) {
     const parts = input.toLowerCase().split(' ');
-    const command = parts.shift();
+    let command = parts.shift();
     const argsStr = parts.join(' ');
 
     switch (command) {
@@ -19,10 +19,10 @@ function roll(input, userId, username) {
     switch (command) {
         case 's':
         case 'save':
-            result = saveCharData(argsStr, userId); break;
+            result = saveCharData(argsStr, channelId, userId); break;
         case 'v':
         case 'view':
-            result = readCharData(userId); break;
+            result = readCharData(channelId, userId); break;
         case 'str':
         case 'dex':
         case 'con':
@@ -32,11 +32,13 @@ function roll(input, userId, username) {
             result = rollAttribute(command, argsStr, userId); break;
         case 'i':
         case 'init':
-            result = rollInit(argsStr, userId, username); break;
+            result = rollInit(argsStr, channelId, userId, username); break;
+        case 'ri':
         case 'resetinit':
-            result = resetInit(); break;
+            result = resetInit(channelId); break;
+        case 'si':
         case 'showinit':
-            result = showInit(); break;
+            result = showInit(channelId); break;
         case 'h':
         case 'help':
             result = getHelpText(); break;
@@ -46,13 +48,13 @@ function roll(input, userId, username) {
     return result;
 };
 
-function saveCharData(argsStr, userId) {
+function saveCharData(argsStr, channelId, userId) {
     var result = '';
     const args = argsStr.replace(/[^0-9,]/g, '').split(',');
     if (args.length < 7) {
         result = getTerm('INVALID_SYNTAX');
     } else {
-        const char = chars.find(c => { return c.userId === userId });
+        const char = chars.find(c => { return c.channelId === channelId && c.userId === userId });
         if (char) {
             char.lvl = parseInt(args[0]);
             char.str = parseInt(args[1]);
@@ -63,6 +65,7 @@ function saveCharData(argsStr, userId) {
             char.cha = parseInt(args[6]);
         } else {
             chars.push({
+                channelId: channelId,
                 userId: userId,
                 lvl: parseInt(args[0]),
                 str: parseInt(args[1]),
@@ -77,9 +80,9 @@ function saveCharData(argsStr, userId) {
     }
     return result;
 }
-function readCharData(userId) {
+function readCharData(channelId, userId) {
     var result = '';
-    const char = chars.find(c => { return c.userId === userId });
+    const char = chars.find(c => { return c.channelId === channelId && c.userId === userId });
     if (char) {
         result = ':crossed_swords:Lvl: `' + char.lvl + '` STR: `' + char.str + '` DEX: `' + char.dex + '` CON: `' + char.con + '` INT: `' + char.int + '` WIS: `' + char.wis + '` CHA: `' + char.cha + '`';
     } else {
@@ -134,35 +137,37 @@ function dN(die) {
     return Math.floor(Math.random() * die) + 1;
 }
 
-function rollInit(argsStr, userId, username) {
+function rollInit(argsStr, channelId, userId, username) {
     var result = '';
     if (argsStr.indexOf('"') > -1) {
         const firstPos = argsStr.indexOf('"');
         const lastPos = argsStr.lastIndexOf('"');
         const creepName = argsStr.substr(firstPos + 1, lastPos - firstPos - 1);
         const roll = argsStr.substr(lastPos + 1);
-        const value = customDiceValue(roll);
+        const rolledStr = rollCustomDice(roll);
+        const value = extractRolledVal(rolledStr); //customDiceValue(roll);
         if (value > 0) {
-            let creepInit = inits.find(i => { return r.charName === creepName });
+            let creepInit = inits.find(i => { return r.channelId === channelId && r.charName === creepName });
             if (creepInit) {
                 creepInit.value = value;
             } else {
                 creepInit = {
                     isUser: false,
+                    channelId: channelId,
                     userId: undefined,
                     charName: creepName,
                     value: value
                 };
                 inits.push(creepInit);
             }
-            result = ':stopwatch:' + creepName + ': ` ' + value + ' `';
+            result = ':stopwatch:' + creepName + ': ' + rolledStr.replace(':game_die:', '');
         } else {
             result = getTerm('NO_COMMAND');
         }
     } else {
-        const char = chars.find(c => { return c.userId === userId });
+        const char = chars.find(c => { return c.channelId === channelId && c.userId === userId });
         if (char) {
-            let charInit = inits.find(i => { return i.userId === userId });
+            let charInit = inits.find(i => { return i.channelId === channelId && i.userId === userId });
             if (!charInit) {
                 var attr = char.dex;
                 const attrMod = Math.floor((attr - 10) / 2);
@@ -184,6 +189,7 @@ function rollInit(argsStr, userId, username) {
 
                 charInit = {
                     isUser: true,
+                    channelId: channelId,
                     userId: userId,
                     charName: username,
                     value: value
@@ -203,66 +209,25 @@ function rollInit(argsStr, userId, username) {
     }
     return result;
 }
-function showInit() {
-    var sorted = inits.slice().sort(function (a, b) { return b.value - a.value });
+function showInit(channelId) {
+    var sorted = inits.filter(i => { return i.channelId === channelId }).sort(function (a, b) { return b.value - a.value });
     var result = 'Tabela de Iniciativas:\r\n';
     sorted.forEach((i, index) => {
         result += `${padStart(i.value, 2, '0')}: ${i.isUser ? ':crossed_swords:' : ':dragon:'} **${i.charName}**\r\n`;
     });
     return result;
 }
-function resetInit() {
-    inits = [];
+function resetInit(channelId) {
+    let result = [];
+    inits.forEach((i, index) => {
+        if (i.channelId !== channelId) {
+            result.push(i);
+        }
+    });
+    inits = result;
     return getTerm('RESET_INIT');
 }
 
-function customDiceValue(args) {
-    var result = 0;
-    const expression = args.replace(/[^0-9d\+\-]/g, '').replace(/\+/g, '|+').replace(/\-/g, '|-');
-    const strRolls = (expression.indexOf('|') === 0 ? expression.substr(1) : expression).split('|');
-    var rolls = [];
-    for (var x in strRolls) {
-        var roll = {};
-        roll.signal = strRolls[x].indexOf('-') > -1 ? -1 : 1;
-        const parts = strRolls[x].split('d');
-        switch (parts.length) {
-            case 1:
-                const flatVal = parseInt(parts[0]);
-                roll.valid = typeof flatVal === 'number';
-                roll.die = 0;
-                roll.result = flatVal;
-                break;
-            case 2:
-                const qtyDice = parts[0] === '' ? 1 : parseInt(parts[0]);
-                const dieType = parseInt(parts[1]);
-                roll.valid = typeof qtyDice === 'number' && typeof dieType === 'number' && dieType > 0 && dieType < 100;
-                roll.qtyDice = roll.valid ? (qtyDice > 0 ? qtyDice : qtyDice * -1) : 0;
-                roll.die = roll.valid ? dieType : 0;
-                roll.result = 0;
-                break;
-            default:
-                roll.valid = false;
-                break;
-        }
-        rolls.push(roll);
-    }
-    if (rolls.length > 0 && rolls.filter(r => !r.valid).length === 0) {
-        for (var x in rolls) {
-            var dice = [];
-            for (var y = 0; y < rolls[x].qtyDice; y++) {
-                const rnd = dN(rolls[x].die);
-                dice.push(rnd);
-                rolls[x].result += rnd;
-            }
-            if (dice.length) {
-                result += rolls[x].result * rolls[x].signal;
-            } else {
-                result += rolls[x].result;
-            }
-        }
-    }
-    return result;
-}
 function rollCustomDice(args) {
     var result = ':game_die:';
     var aggregated = 0;
@@ -316,6 +281,15 @@ function rollCustomDice(args) {
     } else {
         result = getTerm('NO_COMMAND');
     }
+    return result;
+}
+function extractRolledVal(strVal) {
+    let result = 0;
+    try {
+        const iniPos = strVal.indexOf('**`');
+        const endPos = strVal.indexOf('`**');
+        result = parseInt(strVal.substring(iniPos + 3, endPos));
+    } catch { }
     return result;
 }
 

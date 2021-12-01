@@ -12,23 +12,24 @@ function runCommand(message, command) {
     switch (command.split(' ')[0]) {
         case "p":
         case "play":
-            playTest(message, command.replace(/[^0-9]/g, ''));
+            result = playTest(message, command.replace(/[^0-9]/g, ''));
             break;
         case "s":
         case "stop":
-            stop(message);
+            result = stop(message);
             break;
         case "r":
         case "repeat":
             isLooping = !isLooping;
+            message.channel.send(isLooping ? 'repeat on' : 'repeat off');
             break;
         case "l":
         case "list":
-            listFiles(message);
+            result = listFiles(message);
             break;
         case "v":
         case "volume":
-            setVolume(message, command.replace(/[^0-9]/g, ''));
+            result = setVolume(message, command.replace(/[^0-9]/g, ''));
             break;
     }
 }

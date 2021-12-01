@@ -43,7 +43,7 @@ client.on('message', msg => {
         case '.d':
         case '.dnd':
             try {
-                msg.reply(Dnd.roll(argsStr, msg.author.id, msg.member.displayName));
+                msg.reply(Dnd.roll(argsStr, msg.channel.id, msg.author.id, msg.member.displayName));
             } catch (ex) {
                 msg.reply('Erro: ' + ex.message);
             }
