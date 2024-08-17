@@ -4,6 +4,7 @@ CHAR_SAVED= Informações de personagem salvas com sucesso;
 NO_DATA_SAVED= Informações de personagem não foram gravadas. Por favor, execute o comando `.dnd save` antes de rolar atributos;
 NO_COMMAND=Comando não reconhecido.;
 NOT_A_NUMBER=NT inválido;
+SHOW_INITS=Tabela de Iniciativas:;
 RESET_INIT=Tabela de Iniciativa resetada;
 LAST_INIT=Valor salvo para iniciativa;
 HELP=linha de comando: `.d[nd] s[ave] lvl, str, dex, con, int, wis, cha`

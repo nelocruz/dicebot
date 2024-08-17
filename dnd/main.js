@@ -211,7 +211,7 @@ function rollInit(argsStr, channelId, userId, username) {
 }
 function showInit(channelId) {
     var sorted = inits.filter(i => { return i.channelId === channelId }).sort(function (a, b) { return b.value - a.value });
-    var result = 'Tabela de Iniciativas:\r\n';
+    var result = getTerm('SHOW_INITS') + '\r\n';
     sorted.forEach((i, index) => {
         result += `${padStart(i.value, 2, '0')}: ${i.isUser ? ':crossed_swords:' : ':dragon:'} **${i.charName}**\r\n`;
     });
