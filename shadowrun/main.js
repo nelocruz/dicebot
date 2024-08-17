@@ -43,6 +43,7 @@ function rollDice(input) {
         if (ruleOfSix) {
             for (var x = 0; x < sixes; x++) {
                 const roll = d6();
+                if (roll === 6) sixes++;
                 extraRolls[x] = roll;
                 switch (roll) {
                     case 1: botches++; break;
