@@ -1,0 +1,162 @@
+{
+    "roll": {
+        "name": {
+            "en-US": "roll",
+            "pt-BR": "rolar"
+        },
+        "description": {
+            "en-US": "Makes a 3d6 pool roll!",
+            "pt-BR": "Fazer um rolamento de 3d6!"
+        }
+    },
+    "target": {
+        "name": {
+            "en-US": "target",
+            "pt-BR": "alvo"
+        },
+        "description": {
+            "en-US": "The value for the difficulty of the roll!",
+            "pt-BR": "O valor da dificuldade do rolamento!"
+        }
+    },
+    "damage": {
+        "name": {
+            "en-US": "damage",
+            "pt-BR": "dano"
+        },
+        "description": {
+            "en-US": "Makes a roll with several d6s and sums them!",
+            "pt-BR": "Rola vários d6s e soma o total!"
+        }
+    },
+    "dice": {
+        "name": {
+            "en-US": "dice",
+            "pt-BR": "dados"
+        },
+        "description": {
+            "en-US": "The amount of dice for the roll!",
+            "pt-BR": "A quantidade de dados no rolamento!"
+        }
+    },
+    "bonus": {
+        "name": {
+            "en-US": "bonus",
+            "pt-BR": "bônus"
+        },
+        "description": {
+            "en-US": "The static value added to the roll!",
+            "pt-BR": "O valor estático somado ao rolamento!"
+        }
+    },
+    "multiplier": {
+        "name": {
+            "en-US": "multiplier",
+            "pt-BR": "multiplicador"
+        },
+        "description": {
+            "en-US": "How many times to roll the dice pool!",
+            "pt-BR": "Quantidade de vezes em que o pool de dados é rolado!"
+        }
+    },
+    "rangefinder": {
+        "name": {
+            "en-US": "rangefinder",
+            "pt-BR": "rangefinder"
+        },
+        "description": {
+            "en-US": "Gets the modifier for a roll based on distance/speed!",
+            "pt-BR": "Retorna o modificador de rolamento para distância/velocidade!"
+        }
+    },
+    "range": {
+        "name": {
+            "en-US": "range",
+            "pt-BR": "distância"
+        },
+        "description": {
+            "en-US": "The distance/speed to target!",
+            "pt-BR": "O valor da distância/velocidade!"
+        }
+    },
+    "criticaltable": {
+        "name": {
+            "en-US": "criticaltable",
+            "pt-BR": "tabelacritico"
+        },
+        "description": {
+            "en-US": "Rolls a critical blow hit value!",
+            "pt-BR": "Rola um valor na tabela de golpe crítico!"
+        }
+    },
+    "utils": {
+        "criticalSuccess": {
+            "en-US": "CRITICAL SUCCESS!",
+            "pt-BR": "SUCESSO CRÍTICO!"
+        },
+        "success": {
+            "en-US": "SUCCESS",
+            "pt-BR": "SUCESSO"
+        },
+        "fail": {
+            "en-US": "FAIL",
+            "pt-BR": "FALHA"
+        },
+        "criticalFail": {
+            "en-US": "CRITICAL FAIL!",
+            "pt-BR": "FALHA CRÍTICA!"
+        },
+        "margin":{
+            "en-US": "with {d} margin",
+            "pt-BR": "com margem de {d}"
+        },
+        "NaN": {
+            "en-US": "Invalid Target Number",
+            "pt-BR": "Número-alvo inválido"
+        },
+        "grandTotal": {
+            "en-US": "Grand Total",
+            "pt-BR": "Somatório"
+        },
+        "rangeModifierIs": {
+            "en-US": "The modifier for **{target}m** is `{modifier}`",
+            "pt-BR": "O modificador para **{target}m** é `{modifier}`"
+        },
+        "rangeTooLarge": {
+            "en-US": "Distance/speed informed too big!",
+            "pt-BR": "Distância/velocidade informada grande demais!"
+        },
+        "CritNormal3": {
+            "en-US": "The blow does triple damage!",
+            "pt-BR": "O golpe causa o triplo do dano!"
+        },
+        "CritNormal4": {
+            "en-US": "The target's DR protects at half value (round down) after applying any armor divisors!",
+            "pt-BR": "A RD do alvo protege apenas com metade do valor (arredondado para baixo) depois de aplicados quaisquer divisores de armadura!"
+        },
+        "CritNormal5": {
+            "en-US": "The blow does double damage!",
+            "pt-BR": "O golpe causa o dobro do dano!"
+        },
+        "CritNormal6": {
+            "en-US": "The blow does maximum normal damage!",
+            "pt-BR": "O golpe causa o máximo do dano normal!"
+        },
+        "CritNormal7": {
+            "en-US": "If any damage penetrates DR, treat it as if it were a major wound, regardless of the actual injury inflicted!",
+            "pt-BR": "Se qualquer dano penetrar a RD, trate como se fosse um ferimento grave, independente do dano causado!"
+        },
+        "CritNormal8": {
+            "en-US": "If any damage penetrates DR, it inflicts double normal shock (to a maximum penalty of -8). If the injury is to a limb or extremity, that body part is crippled as well. This is only a “funny-bone” injury: crippling wears off in (16 - HT) seconds, minimum two seconds, unless the injury was enough to cripple the body part anyway!",
+            "pt-BR": "Se qualquer dano penetrar a RD, ele causa o dobro do choque normal. Se foi contra um membro, ele fica incapacitado e volta ao normal em (16 - HT) segundos, mínimo dois segundos!"
+        },
+        "CritNormal9": {
+            "en-US": "Normal damage only!",
+            "pt-BR": "Apenas o dano normal!"
+        },
+        "CritNormal12": {
+            "en-US": "Normal damage, and the victim drops anything he is holding, regardless of whether any damage penetrates DR!",
+            "pt-BR": "Dano normal e a vítima deixa cair o que estiver segurando, independe do dano que penetrar a RD!"
+        }
+    }
+}

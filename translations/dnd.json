@@ -1,0 +1,32 @@
+{
+    "roll": {
+        "name": {
+            "en-US": "roll",
+            "pt-BR": "rolar"
+        },
+        "description": {
+            "en-US": "Makes a d20 roll!",
+            "pt-BR": "Fazer um rolamento de d20"
+        }
+    },
+    "bonus": {
+        "name": {
+            "en-US": "bonus",
+            "pt-BR": "bônus"
+        },
+        "description": {
+            "en-US": "The value to add to the d20 roll!",
+            "pt-BR": "O valor a adicionar no rolamento!"
+        }
+    },
+    "options": {
+        "name": {
+            "en-US": "options",
+            "pt-BR": "opções"
+        },
+        "description": {
+            "en-US": "Rolls with advantage or disadvantage!",
+            "pt-BR": "Rolar com vantagem ou desvantagem!"
+        }
+    }
+}

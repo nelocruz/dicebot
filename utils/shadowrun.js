@@ -1,30 +1,8 @@
-const fs = require('fs');
-const { isNumber } = require('util');
+const translations = require('../translations/l5r.json');
 
-var chars = [];
-
-function roll(input, userId) {
-    const parts = input.toLowerCase().split(' ');
-    const command = parts.shift();
-    const argsStr = parts.join(' ');
-
-    switch (command) {
-        case 'r':
-        case 'roll':
-            result = rollDice(argsStr); break;
-        case 'h':
-        case 'help':
-            result = getHelpText();
-        default: result = 'No valid command found.';
-    }
-
-    return result;
-};
-
-function rollDice(input) {
+function rollDice(userNick, diceQtd, ruleOfSix, lang = 'en-US') {
     var result = '';
-    const diceQtd = parseInt(input.replace(/[^0-9]/g, ''));
-    const ruleOfSix = input.indexOf('e') > -1;
+    var t = translations.utils;
     if (typeof diceQtd === 'number') {
         var rolls = [];
         var extraRolls = [];
@@ -41,10 +19,10 @@ function rollDice(input) {
             }
         }
         if (ruleOfSix) {
-            for (var x = 0; x < sixes; x++) {
+            for (var y = 0; y < sixes; y++) {
                 const roll = d6();
                 if (roll === 6) sixes++;
-                extraRolls[x] = roll;
+                extraRolls[y] = roll;
                 switch (roll) {
                     case 1: botches++; break;
                     case 5: successes++; break;
@@ -53,19 +31,22 @@ function rollDice(input) {
             }
         }
 
-        result = ':game_die:';
-        result += '[' + printRolls(rolls) + ']';
+        var suffixIcon = `:game_die:`;
+        var rollsArray = `[${printRolls(rolls)}]`;
+        var sixesArray = '';
         if (ruleOfSix && sixes > 0) {
-            result += '+ [' + printRolls(extraRolls) + ']';
+            sixesArray += ` + [${printRolls(extraRolls)}]`;
         }
-        result += ' = `' + successes + ' hits`';
+        var hits = `= **${userNick}** \`${successes} ${t.hits[lang]}\``;
+        var extras = '';
         if (botches > diceQtd / 2) {
             if (successes == 0) {
-                result+=' `CRITICAL GLITCH!`';
+                extras += ` \`${t.criticalGlitch[lang]}\``;
             } else {
-                result = ' + `GLITCH`';
+                extras += ` + \`${t.glitch[lang]}\``;
             }
         }
+        result = `${suffixIcon} ${rollsArray}${sixesArray} ${hits}${extras}`;
     } else {
         result = 'No value.';
     }
@@ -94,8 +75,6 @@ function printRolls(rolls) {
     return result.join(', ');
 };
 
-function getHelpText() {
-
-};
-
-module.exports.roll = roll;
+module.exports = {
+    rollDice: rollDice,
+}
