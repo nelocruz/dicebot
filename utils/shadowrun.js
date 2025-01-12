@@ -46,7 +46,7 @@ function rollDice(userNick, diceQtd, ruleOfSix, lang = 'en-US') {
                 extras += ` + \`${t.glitch[lang]}\``;
             }
         }
-        result = `${suffixIcon} ${rollsArray}${sixesArray} ${hits}${extras}`;
+        result = `**${diceQtd}**${suffixIcon} ${rollsArray}${sixesArray} ${hits}${extras}`;
     } else {
         result = 'No value.';
     }

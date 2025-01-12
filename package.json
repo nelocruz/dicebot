@@ -13,6 +13,8 @@
     "discord.js": "^14.15.3",
     "ffmpeg-static": "^4.1.1",
     "fs": "0.0.1-security",
+    "sequelize": "^6.37.3",
+    "sqlite3": "^5.1.7",
     "tar": "^6.1.8",
     "ws": "^8.1.0"
   },
