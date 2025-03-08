@@ -37,7 +37,7 @@ function rollDice(userNick, rolledDice, keptDice, fixedValue = 0, explodesAt = 1
         }
         fixedBonus += fixedValue;
         totalRolled += fixedBonus;
-        result = print(rolls, pickedRolls, fixedBonus, totalRolled);
+        result = print(rolls, pickedRolls, fixedBonus, totalRolled, rolledDice, keptDice, fixedValue, explodeValue, hasEmphasis);
     }
     return `${userNick}: ${result}`;
 };
@@ -72,8 +72,11 @@ function sortNumber(a, b) {
     return a - b;
 }
 
-function print(rolls, pickedRolls, fixedBonus, totalRolled) {
-    var result = '[';
+function print(rolls, pickedRolls, fixedBonus, totalRolled, rolledDice, keptDice, fixedValue = 0, explodesAt = 10, hasEmphasis = false) {
+    var rollstring = rolledDice + 'k' + keptDice;
+    rollstring += fixedValue > 0 ? '+' + fixedValue : fixedValue < 0 ? '-' + fixedValue : '';
+    rollstring += explodesAt < 10 ? '(x' + explodesAt + ')' : '';
+    var result = '**' + rollstring + '** = [';
     var arrRolls = [];
     for (var x in rolls) {
         var index = pickedRolls.indexOf(rolls[x]);
