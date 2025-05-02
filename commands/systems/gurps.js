@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const translations = require('../../translations/gurps.json');
-const { getTargetNumber, getDamageTotal, getRangefinder, getCriticalHitNormal } = require('../../utils/gurps');
+const { getTargetNumber, getDamageTotal, getRangefinder, getCriticalHitNormal, getReactionRoll } = require('../../utils/gurps');
 
 const defLang = 'en-US';
 
@@ -66,6 +66,32 @@ module.exports = {
       .setNameLocalizations(translations.criticaltable.name)
       .setDescription(translations.criticaltable.description[defLang])
       .setDescriptionLocalizations(translations.criticaltable.description)
+    )
+    .addSubcommand(subcommand => subcommand
+      .setName('reaction')
+      .setNameLocalizations(translations.reaction.name)
+      .setDescription(translations.reaction.description[defLang])
+      .setDescriptionLocalizations(translations.reaction.description)
+      .addIntegerOption(option => option
+        .setRequired(true)
+        .setName('modifier')
+        .setNameLocalizations(translations.reaction.mod.name)
+        .setDescription(translations.reaction.mod.description[defLang])
+        .setDescriptionLocalizations(translations.reaction.mod.description)
+      )
+      .addStringOption(option => option
+        .setName('type')
+        .setNameLocalizations(translations.reaction.type.name)
+        .setDescription(translations.reaction.type.description[defLang])
+        .setDescriptionLocalizations(translations.reaction.type.description)
+        .addChoices(
+          { name: 'general', value: 'general' },
+          { name: 'commercial', value: 'commercial' },
+          { name: 'aid', value: 'aid' },
+          { name: 'info', value: 'info' },
+          { name: 'loyalty', value: 'loyalty' },
+        )
+      )
     ),
   async execute(interaction) {
     switch (interaction.options.getSubcommand()) {
@@ -96,6 +122,14 @@ module.exports = {
         const userNick = interaction.member?.nickname || interaction.member?.displayName || interaction.user.displayName;
         const lang = interaction.locale;
         await interaction.reply(getCriticalHitNormal(userNick, lang));
+        break;
+      }
+      case 'reaction': {
+        const userNick = interaction.member?.nickname || interaction.member?.displayName || interaction.user.displayName;
+        const modifier = interaction.options.getInteger('modifier') || 0;
+        const type = interaction.options.getString('type') || 'general';
+        const lang = interaction.locale;
+        await interaction.reply(getReactionRoll(userNick, modifier, type, lang));
         break;
       }
     }
