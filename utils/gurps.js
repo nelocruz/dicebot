@@ -179,13 +179,13 @@ function getReactionRoll(nickname, mod = 0, type = 'general', lang = 'en-US') {
     var d3 = Math.floor(Math.random() * 6) + 1;
     var dt = d1 + d2 + d3 + mod;
     var result = `:game_die: [${d1}, ${d2}, ${d3}] ${mod >= 0 ? '+' : ''}${mod} = \`${dt}\`: **${nickname}** \`[title]\` [description]`;
-    if (dt < 0) result = result.replace('[title]', t.range0.title[lang]).replace('[description]', t.range0[type][lang]);
-    else if (dt < 3) result = result.replace('[title]', t.range1.title[lang]).replace('[description]', t.range1[type][lang]);
-    else if (dt < 6) result = result.replace('[title]', t.range4.title[lang]).replace('[description]', t.range4[type][lang]);
-    else if (dt < 9) result = result.replace('[title]', t.range7.title[lang]).replace('[description]', t.range7[type][lang]);
-    else if (dt < 12) result = result.replace('[title]', t.range10.title[lang]).replace('[description]', t.range10[type][lang]);
-    else if (dt < 15) result = result.replace('[title]', t.range13.title[lang]).replace('[description]', t.range13[type][lang]);
-    else if (dt < 18) result = result.replace('[title]', t.range16.title[lang]).replace('[description]', t.range16[type][lang]);
+    if (dt <= 0) result = result.replace('[title]', t.range0.title[lang]).replace('[description]', t.range0[type][lang]);
+    else if (dt <= 3) result = result.replace('[title]', t.range1.title[lang]).replace('[description]', t.range1[type][lang]);
+    else if (dt <= 6) result = result.replace('[title]', t.range4.title[lang]).replace('[description]', t.range4[type][lang]);
+    else if (dt <= 9) result = result.replace('[title]', t.range7.title[lang]).replace('[description]', t.range7[type][lang]);
+    else if (dt <= 12) result = result.replace('[title]', t.range10.title[lang]).replace('[description]', t.range10[type][lang]);
+    else if (dt <= 15) result = result.replace('[title]', t.range13.title[lang]).replace('[description]', t.range13[type][lang]);
+    else if (dt <= 18) result = result.replace('[title]', t.range16.title[lang]).replace('[description]', t.range16[type][lang]);
     else result = result.replace('[title]', t.range19.title[lang]).replace('[description]', t.range19[type][lang]);
     return result
 }
