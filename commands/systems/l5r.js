@@ -47,6 +47,7 @@ module.exports = {
       )
     ),
   async execute(interaction) {
+    await interaction.deferReply();
     switch (interaction.options.getSubcommand()) {
       case 'roll': {
         const userNick = interaction.member?.nickname || interaction.member?.displayName || interaction.user.displayName;
@@ -56,11 +57,11 @@ module.exports = {
         const explodes = interaction.options.getInteger('explodes') || 0;
         const emphasis = interaction.options.getBoolean('emphasis') || false;
         const lang = interaction.locale;
-        await interaction.reply(rollDice(userNick, dice, keep, bonus, explodes, emphasis, lang));
+        await interaction.editReply(rollDice(userNick, dice, keep, bonus, explodes, emphasis, lang));
         break;
       }
       case 'test': {
-        await interaction.reply('test');
+        await interaction.editReply('test');
         break;
       }
     }

@@ -74,7 +74,7 @@ function sortNumber(a, b) {
 
 function print(rolls, pickedRolls, fixedBonus, totalRolled, rolledDice, keptDice, fixedValue = 0, explodesAt = 10, hasEmphasis = false) {
     var rollstring = rolledDice + 'k' + keptDice;
-    rollstring += fixedValue > 0 ? '+' + fixedValue : fixedValue < 0 ? '-' + fixedValue : '';
+    rollstring += fixedValue > 0 ? '+' + fixedValue : fixedValue < 0 ? fixedValue : '';
     rollstring += explodesAt < 10 ? '(x' + explodesAt + ')' : '';
     var result = '**' + rollstring + '** = [';
     var arrRolls = [];

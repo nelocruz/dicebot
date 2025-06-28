@@ -28,17 +28,18 @@ module.exports = {
             )
         ),
     async execute(interaction) {
-        switch(interaction.options.getSubcommand()) {
-            case 'roll': { 
+        await interaction.deferReply();
+        switch (interaction.options.getSubcommand()) {
+            case 'roll': {
                 const userNick = interaction.member?.nickname || interaction.member?.displayName || interaction.user.displayName;
                 const dice = interaction.options.getInteger('dice') || 0;
                 const edge = interaction.options.getBoolean('edge') || false;
                 const lang = interaction.locale;
-                await interaction.reply(rollDice(userNick, dice, edge, lang));
-                break; 
+                await interaction.editReply(rollDice(userNick, dice, edge, lang));
+                break;
             }
             case 'test': {
-                await interaction.reply('test');
+                await interaction.editReply('test');
                 break;
             }
         }

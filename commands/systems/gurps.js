@@ -94,12 +94,13 @@ module.exports = {
       )
     ),
   async execute(interaction) {
+    await interaction.deferReply();
     switch (interaction.options.getSubcommand()) {
       case 'roll': {
         const userNick = interaction.member?.nickname || interaction.member?.displayName || interaction.user.displayName;
         const target = interaction.options.getInteger('target') || 0;
         const lang = interaction.locale;
-        await interaction.reply(getTargetNumber(userNick, target, lang));
+        await interaction.editReply(getTargetNumber(userNick, target, lang));
         break;
       }
       case 'damage': {
@@ -108,20 +109,20 @@ module.exports = {
         const bonus = interaction.options.getInteger('bonus') || 0;
         const multiplier = interaction.options.getInteger('multiplier') || 1;
         const lang = interaction.locale;
-        await interaction.reply(getDamageTotal(userNick, dice, bonus, multiplier, lang));
+        await interaction.editReply(getDamageTotal(userNick, dice, bonus, multiplier, lang));
         break;
       }
       case 'rangefinder': {
         const userNick = interaction.member?.nickname || interaction.member?.displayName || interaction.user.displayName;
         const range = interaction.options.getInteger('range') || 0;
         const lang = interaction.locale;
-        await interaction.reply(getRangefinder(userNick, range, lang));
+        await interaction.editReply(getRangefinder(userNick, range, lang));
         break;
       }
       case 'criticaltable': {
         const userNick = interaction.member?.nickname || interaction.member?.displayName || interaction.user.displayName;
         const lang = interaction.locale;
-        await interaction.reply(getCriticalHitNormal(userNick, lang));
+        await interaction.editReply(getCriticalHitNormal(userNick, lang));
         break;
       }
       case 'reaction': {
@@ -129,7 +130,7 @@ module.exports = {
         const modifier = interaction.options.getInteger('modifier') || 0;
         const type = interaction.options.getString('type') || 'general';
         const lang = interaction.locale;
-        await interaction.reply(getReactionRoll(userNick, modifier, type, lang));
+        await interaction.editReply(getReactionRoll(userNick, modifier, type, lang));
         break;
       }
     }
