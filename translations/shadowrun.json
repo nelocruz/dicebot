@@ -1,0 +1,46 @@
+{
+    "roll": {
+        "name": {
+            "en-US": "roll",
+            "pt-BR": "rolar"
+        },
+        "description": {
+            "en-US": "Makes a d6 pool roll!",
+            "pt-BR": "Fazer um rolamento de pilha de d6!"
+        }
+    },
+    "dice": {
+        "name": {
+            "en-US": "dice",
+            "pt-BR": "dados"
+        },
+        "description": {
+            "en-US": "The amount of dice in the pool!",
+            "pt-BR": "A quantidade de dados na pilha!"
+        }
+    },
+    "edge": {
+        "name": {
+            "en-US": "edge",
+            "pt-BR": "edge"
+        },
+        "description": {
+            "en-US": "Rolls using the Rule of Sixes!",
+            "pt-BR": "Rolar com Regra dos Seis!"
+        }
+    },
+    "utils": {
+        "hits": {
+            "en-US": "hits",
+            "pt-BR": "acertos"
+        },
+        "glitch": {
+            "en-US": "GLITCH!",
+            "pt-BR": "GLITCH!"
+        },
+        "criticalGlitch": {
+            "en-US": "CRITICAL GLITCH!",
+            "pt-BR": "GLITCH CRÍTICO!"
+        }
+    }
+}

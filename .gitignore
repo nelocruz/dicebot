@@ -351,3 +351,6 @@ MigrationBackup/
 
 # proprietary files not included in bundle
 *.mp3
+
+# discord token
+config.json

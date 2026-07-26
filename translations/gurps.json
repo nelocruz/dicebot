@@ -1,0 +1,400 @@
+{
+    "roll": {
+        "name": {
+            "en-US": "roll",
+            "pt-BR": "rolar"
+        },
+        "description": {
+            "en-US": "Makes a 3d6 pool roll!",
+            "pt-BR": "Fazer um rolamento de 3d6!"
+        }
+    },
+    "target": {
+        "name": {
+            "en-US": "target",
+            "pt-BR": "alvo"
+        },
+        "description": {
+            "en-US": "The value for the difficulty of the roll!",
+            "pt-BR": "O valor da dificuldade do rolamento!"
+        }
+    },
+    "damage": {
+        "name": {
+            "en-US": "damage",
+            "pt-BR": "dano"
+        },
+        "description": {
+            "en-US": "Makes a roll with several d6s and sums them!",
+            "pt-BR": "Rola vários d6s e soma o total!"
+        }
+    },
+    "dice": {
+        "name": {
+            "en-US": "dice",
+            "pt-BR": "dados"
+        },
+        "description": {
+            "en-US": "The amount of dice for the roll!",
+            "pt-BR": "A quantidade de dados no rolamento!"
+        }
+    },
+    "bonus": {
+        "name": {
+            "en-US": "bonus",
+            "pt-BR": "bônus"
+        },
+        "description": {
+            "en-US": "The static value added to the roll!",
+            "pt-BR": "O valor estático somado ao rolamento!"
+        }
+    },
+    "multiplier": {
+        "name": {
+            "en-US": "multiplier",
+            "pt-BR": "multiplicador"
+        },
+        "description": {
+            "en-US": "How many times to roll the dice pool!",
+            "pt-BR": "Quantidade de vezes em que o pool de dados é rolado!"
+        }
+    },
+    "rangefinder": {
+        "name": {
+            "en-US": "rangefinder",
+            "pt-BR": "rangefinder"
+        },
+        "description": {
+            "en-US": "Gets the modifier for a roll based on distance/speed!",
+            "pt-BR": "Retorna o modificador de rolamento para distância/velocidade!"
+        }
+    },
+    "range": {
+        "name": {
+            "en-US": "range",
+            "pt-BR": "distância"
+        },
+        "description": {
+            "en-US": "The distance/speed to target!",
+            "pt-BR": "O valor da distância/velocidade!"
+        }
+    },
+    "criticaltable": {
+        "name": {
+            "en-US": "criticaltable",
+            "pt-BR": "tabelacritico"
+        },
+        "description": {
+            "en-US": "Rolls a critical blow hit value!",
+            "pt-BR": "Rola um valor na tabela de golpe crítico!"
+        }
+    },
+    "utils": {
+        "criticalSuccess": {
+            "en-US": "CRITICAL SUCCESS!",
+            "pt-BR": "SUCESSO CRÍTICO!"
+        },
+        "success": {
+            "en-US": "SUCCESS",
+            "pt-BR": "SUCESSO"
+        },
+        "fail": {
+            "en-US": "FAIL",
+            "pt-BR": "FALHA"
+        },
+        "criticalFail": {
+            "en-US": "CRITICAL FAIL!",
+            "pt-BR": "FALHA CRÍTICA!"
+        },
+        "margin":{
+            "en-US": "with {d} margin",
+            "pt-BR": "com margem de {d}"
+        },
+        "NaN": {
+            "en-US": "Invalid Target Number",
+            "pt-BR": "Número-alvo inválido"
+        },
+        "grandTotal": {
+            "en-US": "Grand Total",
+            "pt-BR": "Somatório"
+        },
+        "rangeModifierIs": {
+            "en-US": "The modifier for **{target}m** is `{modifier}`",
+            "pt-BR": "O modificador para **{target}m** é `{modifier}`"
+        },
+        "rangeTooLarge": {
+            "en-US": "Distance/speed informed too big!",
+            "pt-BR": "Distância/velocidade informada grande demais!"
+        },
+        "CritNormal3": {
+            "en-US": "The blow does triple damage!",
+            "pt-BR": "O golpe causa o triplo do dano!"
+        },
+        "CritNormal4": {
+            "en-US": "The target's DR protects at half value (round down) after applying any armor divisors!",
+            "pt-BR": "A RD do alvo protege apenas com metade do valor (arredondado para baixo) depois de aplicados quaisquer divisores de armadura!"
+        },
+        "CritNormal5": {
+            "en-US": "The blow does double damage!",
+            "pt-BR": "O golpe causa o dobro do dano!"
+        },
+        "CritNormal6": {
+            "en-US": "The blow does maximum normal damage!",
+            "pt-BR": "O golpe causa o máximo do dano normal!"
+        },
+        "CritNormal7": {
+            "en-US": "If any damage penetrates DR, treat it as if it were a major wound, regardless of the actual injury inflicted!",
+            "pt-BR": "Se qualquer dano penetrar a RD, trate como se fosse um ferimento grave, independente do dano causado!"
+        },
+        "CritNormal8": {
+            "en-US": "If any damage penetrates DR, it inflicts double normal shock (to a maximum penalty of -8). If the injury is to a limb or extremity, that body part is crippled as well. This is only a “funny-bone” injury: crippling wears off in (16 - HT) seconds, minimum two seconds, unless the injury was enough to cripple the body part anyway!",
+            "pt-BR": "Se qualquer dano penetrar a RD, ele causa o dobro do choque normal. Se foi contra um membro, ele fica incapacitado e volta ao normal em (16 - HT) segundos, mínimo dois segundos!"
+        },
+        "CritNormal9": {
+            "en-US": "Normal damage only!",
+            "pt-BR": "Apenas o dano normal!"
+        },
+        "CritNormal12": {
+            "en-US": "Normal damage, and the victim drops anything he is holding, regardless of whether any damage penetrates DR!",
+            "pt-BR": "Dano normal e a vítima deixa cair o que estiver segurando, independe do dano que penetrar a RD!"
+        }
+    },
+    "reaction": {
+        "name": {
+            "en-US": "reaction",
+            "pt-BR": "reação"
+        },
+        "description": {
+            "en-US": "Makes a roll and returns the value in the reactions table!",
+            "pt-BR": "Faz um rolamento e retorna o valor na tabela de reações!"
+        },
+        "mod": {
+            "name": {
+                "en-US": "modifier",
+                "pt-BR": "modificador"
+            },
+            "description": {
+                "en-US": "The number added or subtracted from the reaction roll!",
+                "pt-BR": "O número adicionado ou reduzido do rolamento de reação!"
+            }
+        },
+        "type": {
+            "name": {
+                "en-US": "type",
+                "pt-BR": "tipo"
+            },
+            "description": {
+                "en-US": "the reaction test type!",
+                "pt-BR": "O tipo de teste de reação!"
+            }
+        },
+        "range0": {
+            "title": {
+                "en-US": "0 or less: Disastrous",
+                "pt-BR": "0 ou menos: Desastrosa"
+            },
+            "general": {
+                "en-US": "General reaction: The NPC hates the PCs and acts in their worst interest. In a potential combat situation, the NPCs attack viciously, asking no quarter and giving none.",
+                "pt-BR": "Reação geral: O PdM odeia os PdJs e faz o possível para prejudicados. Em uma situação de combate iminente, os PdMs atacam violentamente sem pedir nem oferecer clemência."
+            },
+            "commercial": {
+                "en-US": "Commercial transactions are doomed: The merchant has nothing to do with the PCs. Make a “potential combat” roll at -2.",
+                "pt-BR": "Transações comerciais estão condenadas. O comerciante não quer nada com os PdJs. Faça um teste de “combate iminente” com penalidade de -2."
+            },
+            "aid": {
+                "en-US": "Requests for aid are denied totally. Make a “potential combat” roll at -4. If combat is called for but not possible, the NPC works against the PCs in any way possible.",
+                "pt-BR": "Pedidos de ajuda são totalmente negados. Faça um teste de “combate iminente” com penalidade de -4. Se a situação exigir um combate, mas não for possível realizá-lo por algum motivo, o PdM deve fazer o possível para prejudicar os PdJs."
+            },
+            "info": {
+                "en-US": "Requests for information are met with anger. Make a “potential combat” roll at -2.",
+                "pt-BR": "Pedidos de informação são recebidos com fúria. Faça um teste de “combate iminente” com penalidade de -2."
+            },
+            "loyalty": {
+                "en-US": "Loyalty: The NPC hates the PCs or is in the pay of their enemies, and takes the first good chance to betray them.",
+                "pt-BR": "Lealdade: O PdM odeia os PdJs ou está na folha de pagamento do inimigo e irá aproveitar a primeira oportunidade para traí-los."
+            }
+        },
+        "range1": {
+            "title": {
+                "en-US": "1 to 3: Very Bad",
+                "pt-BR": "1 a 3: Muito ruim"
+            },
+            "general": {
+                "en-US": "General reaction: The NPC dislikes the PCs and acts against them if it’s convenient to do so. In a potential combat situation, the NPCs attack, and flee only if they see they have no chance. (A fight in progress continues.)",
+                "pt-BR": "Reação geral: O PdM antipatiza com os PdJs e tenta prejudicá-los se isso lhe for conveniente. Em uma situação de combate iminente, os PdMs atacam e fogem se perceberem que não têm chance. (Um combate em andamento continua.)"
+            },
+            "commercial": {
+                "en-US": "Commercial transactions are next to impossible. The merchant asks three times the fair price, or offers 1/3 the fair price.",
+                "pt-BR": "Transações comerciais são praticamente impossíveis. O comerciante pede três vezes o preço justo ou oferece 1/3 do preço justo."
+            },
+            "aid": {
+                "en-US": "Requests for aid are denied. Make a “potential combat” roll; no reaction better than “Neutral” is possible.",
+                "pt-BR": "Pedidos de ajuda são negados. Faça um teste de “combate iminente”: nenhuma reação melhor que “Neutra” é possível."
+            },
+            "info": {
+                "en-US": "Requests for information are met with malicious lies.",
+                "pt-BR": "Pedidos de informação são respondidos com mentiras maliciosas."
+            },
+            "loyalty": {
+                "en-US": "Loyalty: The NPC dislikes the PCs, and will leave their service (probably taking everything he can carry) or sell them out as soon as possible.",
+                "pt-BR": "Lealdade: O PdM antipatiza com os PdJs e abandona o emprego (provavelmente levando tudo que puder carregar) ou trai os PdJs assim que possível."
+            }
+        },
+        "range4": {
+            "title": {
+                "en-US": "4 to 6: Bad",
+                "pt-BR": "4 a 6: Ruim"
+            },
+            "general": {
+                "en-US": "General reaction: The NPC cares nothing for the PCs and acts against them if he can profit by doing so. In a potential combat situation, the NPCs attack unless outnumbered. If they are outnumbered they flee, possibly to attempt an ambush later. (A fight in progress continues.)",
+                "pt-BR": "Reação geral: O PdM dá pouca importância para os PdJs e irá prejudicá-los se isso lhe trouxer algum benefício. Em uma situação de combate iminente, os PdMs atacam a menos que estejam em menor número. Neste caso, eles fogem, provavelmente para tentar uma emboscada mais tarde, (Um combate em andamento continua.)"
+            },
+            "commercial": {
+                "en-US": "Commercial transactions go badly. The merchant asks twice the fair price, or offers half the fair price.",
+                "pt-BR": "Transações comerciais vão mal. O comerciante pede o dobro do preço justo ou oferece a metade do preço justo."
+            },
+            "aid": {
+                "en-US": "Requests for aid are denied. The NPCs go about their business, ignoring the PCs.",
+                "pt-BR": "Pedidos de ajuda são negados. Os PdMs seguem seu rumo, ignorando os PdJs."
+            },
+            "info": {
+                "en-US": "Requests for information are denied. NPCs lie maliciously or demand payment for information. If paid, the NPC gives true, but incomplete, information.",
+                "pt-BR": "Pedidos de informação são negados. Os PdMs mentem maliciosamente ou exigem uma recompensa pela informação. Se forem pagos, eles darão informações verdadeiras, mas incompletas."
+            },
+            "loyalty": {
+                "en-US": "Loyalty: The NPC has no respect for the PCs. He leaves or betrays them given even moderate temptation, and is a sluggish worker.",
+                "pt-BR": "Lealdade: O PdM não respeita os PdJs. Ele os abandona ou trai dado uma tentação moderada e será um funcionário preguiçoso."
+            }
+        },
+        "range7": {
+            "title": {
+                "en-US": "7 to 9: Poor",
+                "pt-BR": "7 a 9: Fraca"
+            },
+            "general": {
+                "en-US": "General reaction: The NPC is unimpressed. He may become hostile if there is much profit in it, or little danger. In a potential combat situation, the NPCs shout threats or insults. They demand that the PCs leave the area. If the PCs stick around, the NPCs attack unless outnumbered, in which case they flee. (A fight in progress continues.)",
+                "pt-BR": "Reação geral: O PdM não se deixa impressionar. Ele pode se tomar hostil se isso lhe trouxer um lucro muito grande ou houver pouco perigo. Em uma situação de combate iminente, os PdMs desafiam e insultam os PdJs, exigindo que eles saíam da região. Se os PdJs permanecerem, os PdMs os atacam a não ser que estejam em menor número; nesse caso, eles fogem. (Um combate em andamento continua.)"
+            },
+            "commercial": {
+                "en-US": "Commercial transactions are unprofitable. The merchant asks 120% of the fair price, or offers 75% of the fair price.",
+                "pt-BR": "Transações comerciais são improfícuas. O comerciante pede 120% do preço justo ou oferece 75% do preço justo."
+            },
+            "aid": {
+                "en-US": "Requests for aid are denied, but bribes, pleas, or threats might work. The PCs may roll again, at -2.",
+                "pt-BR": "Pedidos de ajuda são negados, mas subornos, súplicas e ameaças podem funcionar. Os PdJs podem fazer um novo teste com uma penalidade de -2."
+            },
+            "info": {
+                "en-US": "Requests for information are unproductive. The NPCs claim not to know, or give incomplete data. A bribe may improve their memory; roll again if a bribe is offered.",
+                "pt-BR": "Pedidos de informação são improdutivos. Os PdMs alegam não ter a informação ou fornecem dados incompletos. Um suborno pode ajudar a refrescar a memória; faça um novo teste de um suborno for oferecido."
+            },
+            "loyalty": {
+                "en-US": "Loyalty: The NPC is unimpressed with the PCs or dislikes the job; he thinks he’s overworked and underpaid. He’ll probably betray them if offered enough, and would certainly take a “better” job if he thought he had one.",
+                "pt-BR": "Lealdade: O PdM não fica muito impressionado com os PdJs ou não gosta do emprego; ele acredita que trabalha muito e ganha pouco. Ele provavelmente trairá os PdJs se a oferta for boa e certamente trocará de emprego se achar que encontrou algo “melhor”."
+            }
+        },
+        "range10": {
+            "title": {
+                "en-US": "10 to 12: Neutral",
+                "pt-BR": "10 a 12: Neutra"
+            },
+            "general": {
+                "en-US": "General reaction: The NPC ignores the PCs as much as possible. He is totally uninterested. In a potential combat situation, the NPCs are inclined to go their own way and let the PCs go theirs. (If a fight is in progress, the NPCs try to back off.)",
+                "pt-BR": "Reação geral: O PdM ignora os PdJs tanto quanto possível. Ele está totalmente desinteressado. Em uma situação de combate iminente, os PdMs ficam inclinados a seguir seus caminhos e deixar os PdJs seguirem o deles. (Se um combate estiver em andamento, os PdMs tentam bater em retirada)."
+            },
+            "commercial": {
+                "en-US": "Commercial transactions go routinely. The merchant buys and sells at fair prices.",
+                "pt-BR": "Transações comerciais seguem de modo rotineiro. O comerciante compra e vende pelo preço justo."
+            },
+            "aid": {
+                "en-US": "Requests for aid are granted – if they are simple. Complex requests are denied, but the PCs can try again at -2.",
+                "pt-BR": "Pedidos de ajuda são concedidos — se forem simples. Pedidos complexos são negados, mas os PdJs podem tentar novamente com uma penalidade de -2."
+            },
+            "info": {
+                "en-US": "Requests for information are successful. The NPC gives the information requested if it is simple. If the question is complex, the answer is sketchy.",
+                "pt-BR": "Pedidos de informação são bem-sucedidos. O PdM dá a informação pedida se for simples. Se a pergunta for complexa, a resposta pode ser vaga."
+            },
+            "loyalty": {
+                "en-US": "Loyalty: The NPC views the PCs as “just another boss,” and this is just another job. He works hard enough to keep them happy, but no harder. He does not leave unless he is sure the new job is better, and does not betray them unless the temptation is very strong.",
+                "pt-BR": "Lealdade: O PdM vê os PdJs como “só mais um patrão” e esse é só mais um emprego. Ele trabalha suficiente para manter o patrão satisfeito, nada mais. Ele não deixa o emprego a não ser que tenha certeza de ter encontrado um melhor e não trairá os PdJs a não ser que a tentação seja muito grande."
+            }
+        },
+        "range13": {
+            "title": {
+                "en-US": "13 to 15: Good",
+                "pt-BR": "13 a 15: Boa"
+            },
+            "general": {
+                "en-US": "General reaction: The NPC likes the PCs and is helpful within reasonable, everyday limits. In a potential combat situation, the NPCs find the PCs likeable, or else too formidable to attack. The PCs may request aid or information; roll again at +1. (If a fight is in progress, the NPCs flee.)",
+                "pt-BR": "Reação geral: O PdM gosta dos PdJs e será prestativo dentro de limites cotidianos razoáveis. Em uma situação de combate iminente, os PdMs acham os PdJs dignos de estima ou muito fortes para serem atacados. Os PdJs podem pedir ajuda ou informações; faça um novo teste com um bônus de +1. (Se um combate já estiver em andamento, os PdMs fogem.)"
+            },
+            "commercial": {
+                "en-US": "Commercial transactions go pleasantly. The merchant buys and sells at fair prices, and volunteers useful information or small bits of help if possible.",
+                "pt-BR": "Transações comerciais serão boas. O comerciante compra e vende pelo preço justo e oferece voluntariamente algumas informações úteis ou ajuda, se possível."
+            },
+            "aid": {
+                "en-US": "Requests for aid are granted if the request is reasonable. The NPCs’ attitude is helpful. Even if the request is silly and must be denied, they offer helpful advice.",
+                "pt-BR": "Pedidos de ajuda são concedidos se forem razoáveis. A atitude dos PdMs é prestativa. Mesmo que o pedido seja absurdo e devesse ser negado, eles oferecem conselhos úteis."
+            },
+            "info": {
+                "en-US": "Requests for information are successful. The question is answered accurately.",
+                "pt-BR": "Pedidos de informação são bem-sucedidos. A pergunta é respondida com precisão. "
+            },
+            "loyalty": {
+                "en-US": "Loyalty: The NPC likes the PCs or the job. He is loyal, works hard, and accepts any reasonable hazard that the PCs accept.",
+                "pt-BR": "Lealdade: O PdM gosta dos PdJs ou do emprego. Ele é leal, trabalha duro e aceita qualquer risco razoável que os PdJs também aceitem."
+            }
+        },
+        "range16": {
+            "title": {
+                "en-US": "16 to 18: Very Good",
+                "pt-BR": "16 a 18: Muito boa"
+            },
+            "general": {
+                "en-US": "General reaction: The NPC thinks highly of the PCs and is quite helpful and friendly. In a potential combat situation, the NPCs are friendly. The PCs may ask for aid or information (roll again at +3). Even sworn foes find an excuse to let the PCs go... for now. (If a fight is in progress, the NPCs flee if they can, or surrender otherwise.)",
+                "pt-BR": "Reação geral: O PdM tem os PdJs em alta conta e é bastante prestativo e amistoso. Em uma situação de combate iminente, os PdMs serão amigáveis. Os PdJs podem pedir ajuda ou informações (faça um novo teste com um bônus de +3). Até mesmo inimigos jurados acham uma desculpa para deixar os PdJs em paz... por enquanto. (Se um combate já estiver em andamento, os PdMs fogem se possível, caso contrário, rendem-se.)"
+            },
+            "commercial": {
+                "en-US": "Commercial transactions go very well. The merchant accepts the PCs’ offer unless they tried to buy below 80% of the fair price or sell above 150% of the fair price. In that case, he offers those rates. He also offers help and advice.",
+                "pt-BR": "Transações comerciais serão muito boas. O comerciante aceita a oferta dos PdJs a não ser que eles queiram comprar seus bens por menos de 80% do preço justo ou vender por mais de 150% do preço justo. Neste caso, ele oferece esses valores. Ele também oferece ajuda e conselhos. "
+            },
+            "aid": {
+                "en-US": "Requests for aid are granted unless they are totally unreasonable. Any useful information NPCs have is volunteered freely.",
+                "pt-BR": "Pedidos de ajuda são concedidos a não ser que sejam totalmente absurdos. Quaisquer informações úteis que os PdMs tenham para dar serão dadas voluntariamente."
+            },
+            "info": {
+                "en-US": "Requests for information are successful. The NPC answers in detail and volunteers any related information he has.",
+                "pt-BR": "Pedidos de informação são bem-sucedidos. O PdM responde com detalhes e oferece voluntariamente quaisquer informações relacionadas tivera pergunta."
+            },
+            "loyalty": {
+                "en-US": "Loyalty: The NPC works very hard, and risks his life if need be. Under most circumstances, he puts the PCs’ interests ahead of his own.",
+                "pt-BR": "Lealdade: O PdM trabalha muito duro e arrisca a vida se necessário. Na maioria das vezes ele coloca os interesses dos PdJs à frente dos seus próprios."
+            }
+        },
+        "range19": {
+            "title": {
+                "en-US": "19 or better: Excellent",
+                "pt-BR": "19 ou melhor: Excelente"
+            },
+            "general": {
+                "en-US": "General reaction: The NPC is extremely impressed by the PCs, and acts in their best interests at all times, within the limits of his own ability. In a potential combat situation, the NPCs are extremely friendly. They may even join the party temporarily. The PCs may ask for aid or information; roll again at +5. (If a fight is in progress, the NPCs surrender.)",
+                "pt-BR": "Reação geral: O PdM fica extremamente impressionado com os PdJs e os ajuda da melhor forma possível, dentro dos limites de suas capacidades. Em uma situação de combate iminente, os PdMs serão extremamente amigáveis. Eles podem até se juntar ao grupo temporariamente. Os PdJs podem pedir ajuda ou informações; faça um novo teste com um bônus de +5. (Se um combate já estiver em andamento, os PdMs se rendem.)"
+            },
+            "commercial": {
+                "en-US": "Commercial transactions go extremely well. The merchant accepts the PCs’ offer unless they tried to buy below 50% of fair price or sell above 200% of fair price. In that case, he offers those rates. He also offers help and advice.",
+                "pt-BR": "Transações comerciais serão extremamente boas. O comerciante aceita a oferta dos PdJs a não ser que eles queiram comprar seus bens por menos de 50% do preço justo ou vender por mais de 200% do preço justo. Neste caso, ele oferecerá esses valores. Ele também oferece ajuda e conselhos."
+            },
+            "aid": {
+                "en-US": "Requests for aid are granted. NPCs help in every way within their power, offering extra aid.",
+                "pt-BR": "Pedidos de ajuda são concedidos. Os PdMs ajudam como puderem, até mesmo oferecendo ajuda adicional."
+            },
+            "info": {
+                "en-US": "Requests for information are extremely successful. The question is answered completely. If the NPC doesn’t know everything the PCs need, he exerts himself to find out. He may even offer to help: roll a request for aid at +2, with no reaction worse than “Poor” possible.",
+                "pt-BR": "Pedidos de informação são extremamente bem-sucedidos. A pergunta é respondida completamente. Se o PdM não souber tudo que os PdJs precisam, ele tentará descobrir. Ele pode até se oferecer para ajudar: faça um teste para pedido de ajuda com bônus de +2, sendo impossível qualquer reação pior que “Fraca”."
+            },
+            "loyalty": {
+                "en-US": "Loyalty: The NPC worships the PCs or their cause, works incredibly hard, puts the PCs’ interests ahead of his own at all times, and would even die for them.",
+                "pt-BR": "Lealdade: O PdM adora os PdJs ou a causa deles, trabalha com disposição incrível, coloca os interesses dos PdJs sempre à frente dos seus e até morreria por eles."
+            }
+        }
+    }
+}

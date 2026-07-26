@@ -1,0 +1,76 @@
+{
+    "roll": {
+        "name": {
+            "en-US": "check",
+            "pt-BR": "test"
+        },
+        "description": {
+            "en-US": "Makes a d10 pool roll!",
+            "pt-BR": "Fazer um rolamento de pilha de d10!"
+        }
+    },
+    "dice": {
+        "name": {
+            "en-US": "roll",
+            "pt-BR": "rolar"
+        },
+        "description": {
+            "en-US": "The amount of rolled dice in the pool!",
+            "pt-BR": "A quantidade de dados rolados na pilha!"
+        }
+    },
+    "keep": {
+        "name": {
+            "en-US": "keep",
+            "pt-BR": "manter"
+        },
+        "description": {
+            "en-US": "The amount of kept dice in the pool!",
+            "pt-BR": "A quantidade de dados mantidos na pilha!"
+        }
+    },
+    "bonus": {
+        "name": {
+            "en-US": "bonus",
+            "pt-BR": "bônus"
+        },
+        "description": {
+            "en-US": "The fixed amount added to the roll!",
+            "pt-BR": "O valor fixo somado após o rolamento!"
+        }
+    },
+    "explodes": {
+        "name": {
+            "en-US": "explodes",
+            "pt-BR": "explode"
+        },
+        "description": {
+            "en-US": "Minimum dice value to explode! (default 10)",
+            "pt-BR": "Valor mínimo de cada dado para explodir! (default 10)"
+        }
+    },
+    "emphasis": {
+        "name": {
+            "en-US": "emphasis",
+            "pt-BR": "ênfase"
+        },
+        "description": {
+            "en-US": "Adds emphasis bonus",
+            "pt-BR": "Adiciona bônus de ênfase"
+        }
+    },
+    "utils": {
+        "hits": {
+            "en-US": "hits",
+            "pt-BR": "acertos"
+        },
+        "glitch": {
+            "en-US": "GLITCH!",
+            "pt-BR": "GLITCH!"
+        },
+        "criticalGlitch": {
+            "en-US": "CRITICAL GLITCH!",
+            "pt-BR": "GLITCH CRÍTICO!"
+        }
+    }
+}
